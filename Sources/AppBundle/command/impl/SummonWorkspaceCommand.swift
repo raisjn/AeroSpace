@@ -17,7 +17,7 @@ struct SummonWorkspaceCommand: Command {
         }
 
         let onMonitor = monitors.first { $0.activeWorkspace == workspace }
-        if let onMonitor = onMonitor {
+        if let onMonitor {
             if workspace.forceAssignedMonitor?.monitorId == onMonitor.monitorId {
                 io.err("Workspace '\(workspace.name)' is already visible on a monitor, returning")
                 return !args.failIfNoop
